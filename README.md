@@ -1,58 +1,73 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
-      color: #333;
-      padding: 20px;
-    }
+<p align="center">
+  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
+</p>
 
-    h1 {
-      color: #007bff;
-    }
+[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
+[circleci-url]: https://circleci.com/gh/nestjs/nest
 
-    p {
-      margin-bottom: 10px;
-    }
+  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
+    <p align="center">
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
+<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
+<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
+<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
+<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
+<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
+  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
+    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
+  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
+</p>
+  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
+  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
+## Description
 
-    .twitter-link {
-      color: #007bff;
-      text-decoration: none;
-    }
+[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1>Meu Projeto em Nest - Bot Discord para Envio de Tokens e Resgate de Jcoins</h1>
+## Installation
 
-    <p>Este é um projeto recreativo que consiste em uma aplicação que possui um bot Discord que envia tokens e permite aos usuários resgatá-los convertendo-os em Jcoins. É uma maneira divertida de interagir com amigos.</p>
+```bash
+$ npm install
+```
 
-    <h2>Recursos:</h2>
-    <ul>
-      <li>Bot Discord para envio de tokens</li>
-      <li>Resgate de tokens para Jcoins</li>
-      <li>Interação com amigos no Discord</li>
-    </ul>
+## Running the app
 
-    <h2>Como executar o projeto:</h2>
-    <ol>
-      <li>Clone este repositório</li>
-      <li>Instale as dependências com o comando <code>npm install</code></li>
-      <li>Configure as variáveis de ambiente necessárias, como as credenciais do Discord</li>
-      <li>Execute o projeto com o comando <code>npm run start</code></li>
-    </ol>
+```bash
+# development
+$ npm run start
 
-    <h2>Contato</h2>
-    <p>Para mais informações, você pode entrar em contato comigo através do meu Twitter: <a href="https://twitter.com/secXVlII" class="twitter-link">@secXVlII</a></p>
+# watch mode
+$ npm run start:dev
 
-  </div>
-</body>
-</html>
+# production mode
+$ npm run start:prod
+```
+
+## Test
+
+```bash
+# unit tests
+$ npm run test
+
+# e2e tests
+$ npm run test:e2e
+
+# test coverage
+$ npm run test:cov
+```
+
+## Support
+
+Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+
+## Stay in touch
+
+- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
+- Website - [https://nestjs.com](https://nestjs.com/)
+- Twitter - [@nestframework](https://twitter.com/nestframework)
+
+## License
+
+Nest is [MIT licensed](LICENSE).

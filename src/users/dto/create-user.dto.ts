@@ -1,4 +1,6 @@
 import { IsString, IsEmail, Matches, IsNotEmpty } from 'class-validator';
+import { RegexHelper } from '../helpers/expression.helpers';
+import { ErrorMessages } from '../helpers/errors.helpers';
 
 export class CreateUserDto {
   @IsEmail()
@@ -7,7 +9,9 @@ export class CreateUserDto {
   @IsString()
   @IsNotEmpty()
   nickname: string;
-  @Matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/)
+  @Matches(RegexHelper.passwordRegex, {
+    message: ErrorMessages.VALID_PASS_FORMAT,
+  })
   @IsNotEmpty()
   password: string;
 }

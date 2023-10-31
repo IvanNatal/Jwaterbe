@@ -21,7 +21,8 @@ model User {
 model Jcoin {
   id         Int      @id @default(autoincrement())
   token      String   @unique
-  value      Int
+  redeemed    Boolean @default(false)
+  value       Int     @default(1)
   redeemedBy User?    @relation(fields: [redeemedById], references: [id])
   redeemedById Int?
 }

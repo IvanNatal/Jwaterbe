@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Jcoin" ADD COLUMN     "value" INTEGER NOT NULL DEFAULT 1;

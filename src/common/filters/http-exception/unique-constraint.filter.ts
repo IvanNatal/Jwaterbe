@@ -33,7 +33,6 @@ export class UniqueCoinstraintFilter implements ExceptionFilter {
         });
       }
     } else {
-      // Handle other Prisma errors
       response.status(HttpStatus.INTERNAL_SERVER_ERROR).json({
         message: 'Internal server error',
       });

@@ -1,10 +1,14 @@
 import {
+  BadRequestException,
   ConflictException,
+  HttpException,
   Injectable,
   InternalServerErrorException,
+  NotFoundException,
 } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { CreateUserDto } from '../dto/create-user.dto';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class UsersRepository {
@@ -15,12 +19,23 @@ export class UsersRepository {
   }
 
   async findOne(id: number) {
-    return this.prismaService.user.findUnique({ where: { id } });
+    const user = await this.prismaService.user.findUnique({ where: { id } });
+    if (!user) {
+      throw new NotFoundException();
+    }
+    return user;
   }
 
   async create(createUserDto: CreateUserDto) {
     try {
-      return await this.prismaService.user.create({ data: createUserDto });
+      const hashedPassword = await bcrypt.hash(createUserDto.password, 10);
+      return await this.prismaService.user.create({
+        data: {
+          nickname: createUserDto.nickname,
+          email: createUserDto.email,
+          password: hashedPassword,
+        },
+      });
     } catch (error) {
       throw new ConflictException();
     }
@@ -33,13 +48,14 @@ export class UsersRepository {
         data: updateUserDto,
       });
     } catch (error) {
-      throw new InternalServerErrorException('Erro ao atualizar usuário');
+      throw new BadRequestException('Erro ao atualizar usuário');
     }
   }
 
   async remove(id: number) {
     try {
-      return await this.prismaService.user.delete({ where: { id } });
+      await this.prismaService.user.delete({ where: { id } });
+      return 'usuário deletado!';
     } catch (error) {
       throw new InternalServerErrorException('Erro ao deletar usuário');
     }

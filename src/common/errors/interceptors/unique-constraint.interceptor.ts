@@ -21,6 +21,18 @@ export class UniqueConstraintInterceptor implements NestInterceptor {
             message: 'Credenciais inválidas ou já existentes!',
           });
           return throwError(error);
+        } else if (error.response?.statusCode === 404) {
+          const response = context.switchToHttp().getResponse<Response>();
+          response.status(404).json({
+            message: 'Usuário não encontrado!',
+          });
+          return throwError(error);
+        } else if (error.response?.statusCode === 400) {
+          const response = context.switchToHttp().getResponse<Response>();
+          response.status(400).json({
+            message: 'Dados inválidos!',
+          });
+          return throwError(error);
         } else {
           return throwError(error);
         }

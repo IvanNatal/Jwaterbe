@@ -6,9 +6,10 @@ import { AuthModule } from './auth/auth.module';
 import { APP_GUARD } from '@nestjs/core';
 import { JwtAuthGuard } from './auth/guards/jwt-auth.guard';
 import { ConfigModule } from '@nestjs/config';
+import { JerkbotModule } from './jerkbot/jerkbot.module';
 
 @Module({
-  imports: [UsersModule, AuthModule, ConfigModule.forRoot({ isGlobal: true })],
+  imports: [UsersModule, AuthModule, ConfigModule.forRoot({ isGlobal: true }), JerkbotModule],
   controllers: [AppController],
   providers: [AppService, { provide: APP_GUARD, useClass: JwtAuthGuard }],
 })

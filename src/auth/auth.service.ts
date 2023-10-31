@@ -26,7 +26,11 @@ export class AuthService {
     };
   }
 
-  async validateUser(email: string, password: string): Promise<UserEntity> {
+  async validateUser(
+    email: string,
+    password: string,
+    nickname: string,
+  ): Promise<UserEntity> {
     const user = await this.userRepository.findByEmail(email);
 
     if (user) {

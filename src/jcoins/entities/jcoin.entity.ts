@@ -5,4 +5,5 @@ export class JcoinEntity implements Jcoin {
   value: number;
   redeemed: boolean;
   redeemedById: number;
+  redeenedAt: Date;
 }

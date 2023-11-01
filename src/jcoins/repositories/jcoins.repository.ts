@@ -11,12 +11,13 @@ export class JcoinsRepository {
 
     const jcoin = await this.prismaService.jcoin.create({
       data: {
-        token,
+        token: token,
         value: 1,
       },
     });
     return jcoin;
   }
+
   async getTokenById(id: number) {
     const jcoin = await this.prismaService.jcoin.findUnique({
       where: {
@@ -25,8 +26,43 @@ export class JcoinsRepository {
     });
     return jcoin;
   }
+
   async getAllTokens() {
     const jcoin = await this.prismaService.jcoin.findMany();
     return jcoin;
+  }
+
+  async incrementJcoinCount(id: number) {
+    const jcoin = await this.prismaService.user.update({
+      where: {
+        id,
+      },
+      data: {
+        jcoinCount: {
+          increment: 1,
+        },
+      },
+    });
+    return jcoin;
+  }
+
+  async updateTokenStatus(id: number, redeemed: boolean) {
+    const token = await this.prismaService.jcoin.update({
+      where: {
+        id,
+      },
+      data: {
+        redeemed,
+      },
+    });
+    return token;
+  }
+
+  async getTokenByToken(token: string) {
+    return this.prismaService.jcoin.findUnique({
+      where: {
+        token,
+      },
+    });
   }
 }

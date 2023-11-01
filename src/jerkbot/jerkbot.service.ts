@@ -16,7 +16,7 @@ export class JerkbotService implements OnModuleInit {
         status: 'dnd',
         activities: [{ name: 'GitHub copilot' }],
       });
-      //this.startSendingMessages();
+      // this.startSendingMessages();
     });
   }
 

@@ -1,16 +1,22 @@
-import { Controller, Get, Post, Param } from '@nestjs/common';
+import { Controller, Get, Post, Param, Body } from '@nestjs/common';
 import { JcoinsService } from './jcoins.service';
-import { CreateJcoinDto } from './dto/create-jcoin.dto';
+
 import { IsPublic } from 'src/auth/decorators/is-public.decorator';
 
 @Controller('jcoins')
 export class JcoinsController {
   constructor(private readonly jcoinsService: JcoinsService) {}
+
   @IsPublic()
-  @Post()
-  async generateToken() {
-    return this.jcoinsService.redeemJcoin();
+  @Post('redeem')
+  async redeemJcoinByToken(@Body() body: { token: string; id: number }) {
+    const result = await this.jcoinsService.redeemJcoinByToken(
+      body.id,
+      body.token,
+    );
+    return { message: result };
   }
+
   @IsPublic()
   @Get(':id')
   async getJcoinById(@Param('id') id: number) {

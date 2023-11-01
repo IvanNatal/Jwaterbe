@@ -4,4 +4,5 @@ export class UserEntity implements User {
   email: string;
   nickname: string;
   password: string;
+  jcoinCount: number;
 }

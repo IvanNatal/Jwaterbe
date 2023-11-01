@@ -16,6 +16,7 @@ model User {
   nickname String   @unique @db.VarChar(30)
   password String
   jcoins   Jcoin[]
+  jcoinCount Int     @default(0)
 }
 
 model Jcoin {
@@ -25,6 +26,7 @@ model Jcoin {
   value       Int     @default(1)
   redeemedBy User?    @relation(fields: [redeemedById], references: [id])
   redeemedById Int?
+  redeenedAt DateTime?
 }
 
 
